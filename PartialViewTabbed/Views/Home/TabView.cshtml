@@ -13,15 +13,18 @@
     </script>
 }
 
+@* For the last tab the view will not be loaded initially. Only when the user clicks on the tab the view will be loaded *@
 <div id="tabs">
     <ul>
         <li><a href="#tabs-1">Transaction</a></li>
         <li><a href="#tabs-2">Logs</a></li>
         <li><a href="#tabs-3">Audit</a></li>
         <li><a href="#tabs-4">Extra</a></li>
+        <li><a href="../Home/Tab5View">Test Tab</a></li>
     </ul>
     <div id="tabs-1">
-        @* Create a single model object and invoke the partial view passing the same *@
+        @* Create a single model object and invoke the partial view passing the same 
+            In this case the entire tab data is loaded when the page loads*@
         @{ 
             var tranModel = new PartialViewTabbed.Models.TransactionModel
             {
@@ -33,7 +36,8 @@
         @Html.Partial("../Tab1View",@tranModel)
     </div>
     <div id="tabs-2">
-        @* Create a collection model object and invoke the partial view passing the same *@
+        @*  Create a collection model object and invoke the partial view passing the same
+            In this case the entire tab data is loaded when the page loads*@
         @{
             List<PartialViewTabbed.Models.LogModel> logModel = 
                 new List<PartialViewTabbed.Models.LogModel>();
@@ -50,14 +54,16 @@
         @Html.Partial("../Tab2View",@logModel)
     </div>
     <div id="tabs-3">
-        @* Invoke the controller method which will create the relevant model object and pass it to the view 
-            and further the view will use the model object and display the contents *@
+        @*  Invoke the controller method which will create the relevant model object and pass it to the view
+            and further the view will use the model object and display the contents
+            In this case the entire tab data is loaded when the page loads*@
         @Html.Action("Tab3View", "Home")
     </div>
     <div id="tabs-4">
-        @* Display a link in the tab. When you click the link the controller method will be called which 
-            will create the model and pass the model to the view and the view will use the model object 
-            and display the contents *@
+        @*  Display a link in the tab. When you click the link the controller method will be called which
+            will create the model and pass the model to the view and the view will use the model object
+            and display the contents
+            In this case the entire tab data is not loaded when the page loads*@
         @Ajax.ActionLink("Click Link to see data", "Tab4View", "Home", new AjaxOptions { UpdateTargetId = "tabs4data" })
         <div id="tabs4data"></div>
     </div>

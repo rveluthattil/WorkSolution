@@ -63,5 +63,19 @@ namespace PartialViewTabbed.Controllers
             return PartialView("../Tab3View", aModel);
         }
 
+        public ActionResult Tab5View()
+        {
+            ViewBag.Message = "Tab5View";
+            List<AuditModel> aModel = new List<AuditModel>();
+            for (int ctr = 1; ctr <= 10; ctr++)
+                aModel.Add(new AuditModel
+                {
+                    intAuditId = ctr,
+                    strAuditName = "Audit" + ((ctr <= 9) ? "0" + ctr.ToString() : ctr.ToString()),
+                    dtmAuditDate = DateTime.Now
+                });
+            return PartialView("../Tab5View", aModel);
+        }
+
     }
 }

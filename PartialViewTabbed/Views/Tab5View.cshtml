@@ -1,0 +1,19 @@
+﻿@model List<PartialViewTabbed.Models.AuditModel>
+<p>Partial View rendered through tab5</p>
+<table border="1">
+    <thead>
+        <tr>
+            <td>AuditId</td>
+            <td>AuditName</td>
+            <td>AuditDate</td>
+        </tr>
+    </thead>
+    @foreach (var aModel in Model)
+    {
+        <tr>
+            <td>@aModel.intAuditId</td>
+            <td>@aModel.strAuditName</td>
+            <td>@aModel.dtmAuditDate.ToShortDateString()</td>
+        </tr>
+    }
+</table>

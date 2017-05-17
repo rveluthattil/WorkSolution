@@ -255,6 +255,7 @@
     <Content Include="Views\Tab1View.cshtml" />
     <Content Include="Views\Tab3View.cshtml" />
     <Content Include="Views\Tab2View.cshtml" />
+    <Content Include="Views\Tab5View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
