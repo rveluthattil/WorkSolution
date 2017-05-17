@@ -1,0 +1,19 @@
+﻿@model List<PartialViewTabbed.Models.LogModel>
+<p>Partial View rendered through tab2</p>
+<table border="1">
+    <thead>
+        <tr>
+            <td>LogId</td>
+            <td>LogName</td>
+            <td>LogDate</td>
+        </tr>
+    </thead>
+    @foreach(var logModel in Model)
+    {
+        <tr>
+            <td>@logModel.intLogId</td>
+            <td>@logModel.strLogName</td>
+            <td>@logModel.dtmLogDate.ToShortDateString()</td>
+        </tr>
+    }
+</table>
