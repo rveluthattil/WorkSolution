@@ -37,7 +37,6 @@ namespace PartialViewTabbed.Controllers
         //[AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
         public ActionResult Tab3View()
         {
-            ViewBag.Message = "Tab3View";
             List<AuditModel> aModel = new List<AuditModel>();
             for (int ctr = 1; ctr <= 10; ctr++)
                 aModel.Add(new AuditModel
