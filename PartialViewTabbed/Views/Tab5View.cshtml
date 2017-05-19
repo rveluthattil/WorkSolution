@@ -1,5 +1,46 @@
 ﻿@model List<PartialViewTabbed.Models.AuditModel>
 <p>Partial View rendered through tab5</p>
+
+<script type="text/javascript">
+
+    $("#dialog").dialog({
+        autoOpen: false, modal: true, show: "blinde", hide: "blind"
+    });
+
+    function doSomethingInJavascript() {
+        alert("Function");
+    }
+
+    function setErrorLabelData()
+    {
+        document.getElementById("lblErrorInfo").innerText = "Error Information goes here";
+    }
+
+    function invokeModalWindow() {
+        $("#dialog").dialog("open");
+        return false;
+    }
+
+    function returnAjaxData() {
+        $.ajax({
+            url: 'http://api.joind.in/v2.1/talks/10889',
+            data: {
+                format: 'json'
+            },
+            error: function () {
+                $('lblErrorInfo').text("Error in json retrival");
+            },
+            dataType: 'jsonp',
+            success: function (data) {
+                var outputdata = data.talks[0].talk_title;
+                outputdata += " " + data.talks[0].talk_description;
+                document.getElementById("lblOutput").innerText = outputdata;
+            },
+            type: 'GET'
+        });
+    }
+</script>
+
 <table border="1">
     <thead>
         <tr>
@@ -17,3 +58,12 @@
         </tr>
     }
 </table>
+
+<div id="dialog" title="Modal Dialog">
+    <p>Dialog</p>
+</div>
+<input type="button" value="DoSomethingInJavascript" onclick="doSomethingInJavascript()" />
+<input type="button" value="SetErrorLabelData" onclick="setErrorLabelData()" />
+<input type="button" value="Invoke Model Window" onclick="invokeModalWindow()" />
+<input type="button" value="Return Ajax Data" onclick="returnAjaxData()" />
+

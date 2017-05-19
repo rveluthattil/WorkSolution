@@ -6,12 +6,17 @@
 <h2>TabView</h2>
 @section scripts
 {
-    <script type="text/javascript" >
+    <script type="text/javascript">
         $(function () {
             $("#tabs").tabs();
         });
-    </script>
+</script>
 }
+
+<div>
+    <label id="lblErrorInfo"></label>
+    <label id="lblOutput"></label>
+</div>
 
 @* For the last tab the view will not be loaded initially. Only when the user clicks on the tab the view will be loaded *@
 <div id="tabs">
